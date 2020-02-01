@@ -1,0 +1,23 @@
+pipeline {
+agent any
+stages {
+stages('one') {
+steps {
+echo 'hi, this is veera from kkd'
+}
+}
+stage ('two') {
+steps{
+input('Do you want to proceed?')
+}
+}
+stage('three'){
+when{
+not{
+branch "Master"
+}
+}
+steps{
+echo "hello"
+}
+}
